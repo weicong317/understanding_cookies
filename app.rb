@@ -1,31 +1,17 @@
-<<<<<<< HEAD
 require 'sinatra'
 require "sinatra/cookies"
 require "byebug"
 
 get "/" do
+  # name = nil if cookies name is empty
   @name = nil || cookies[:name]
+  # show home view
   erb :'home'
 end
 
 post "/" do
-	cookies[:name] = params["name"]
-	byebug
+  # set the params become cookies name
+  cookies[:name] = params["name"]
+  # run homapage again
   redirect "/"
 end
-=======
-require 'sinatra'
-require "sinatra/cookies"
-require "byebug"
-
-get "/" do
-  @name = nil || cookies[:name]
-  erb :'home'
-end
-
-post "/" do
-	cookies[:name] = params["name"]
-	byebug
-  redirect "/"
-end
->>>>>>> 07e93a2db969fc7a996edf35b1c7d52047f780a0
